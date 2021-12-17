@@ -9,4 +9,6 @@ module nl.averageflow.nederlandsleraar {
 
     opens nl.averageflow.nederlandsleraar to javafx.fxml;
     exports nl.averageflow.nederlandsleraar;
+    exports nl.averageflow.nederlandsleraar.controllers;
+    opens nl.averageflow.nederlandsleraar.controllers to javafx.fxml;
 }
