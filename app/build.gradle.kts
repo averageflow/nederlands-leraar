@@ -11,7 +11,7 @@ java {
 
 group = "nl.averageflow"
 version = "1.0-SNAPSHOT"
-var applicationMainClass =  "nl.averageflow.nederlandsleraar.HelloApplication"
+var applicationMainClass =  "nl.averageflow.nederlandsleraar.NederlandsLeraar"
 
 repositories {
     mavenCentral()
