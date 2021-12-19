@@ -7,7 +7,6 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import nl.averageflow.nederlandsleraar.dto.Word;
 
-import java.util.Locale;
 import java.util.Random;
 
 public class StartScreenController {
@@ -24,7 +23,7 @@ public class StartScreenController {
     @FXML
     protected Button buttonHet;
 
-    protected Word currentWord ;
+    protected Word currentWord;
 
     protected String niceGreen = "#adff2f";
     protected String niceRed = "#ff0000";
@@ -41,7 +40,7 @@ public class StartScreenController {
             new Word("de", "auto-monteur"),
     };
 
-    public StartScreenController(){
+    public StartScreenController() {
         this.currentWord = this.getRandomWord();
     }
 
@@ -67,7 +66,7 @@ public class StartScreenController {
         this.setNextWord();
     }
 
-    protected void setButtonColor(String hexColorCode){
+    protected void setButtonColor(String hexColorCode) {
         this.buttonHet.setTextFill(Paint.valueOf(hexColorCode));
         this.buttonDe.setTextFill(Paint.valueOf(hexColorCode));
     }
