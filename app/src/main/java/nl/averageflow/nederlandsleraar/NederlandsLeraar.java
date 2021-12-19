@@ -8,6 +8,10 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class NederlandsLeraar extends Application {
+    public static void main(String[] args) {
+        launch();
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(NederlandsLeraar.class.getResource("StartScreen.fxml"));
@@ -15,9 +19,5 @@ public class NederlandsLeraar extends Application {
         stage.setTitle("Nederlands Leraar Spelletje :)");
         stage.setScene(scene);
         stage.show();
-    }
-
-    public static void main(String[] args) {
-        launch();
     }
 }
