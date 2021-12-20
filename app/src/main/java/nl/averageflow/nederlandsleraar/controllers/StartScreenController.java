@@ -23,10 +23,21 @@ public class StartScreenController {
     @FXML
     protected Button buttonHet;
 
-    protected Word currentWord;
+    @FXML
+    protected Text statusText;
 
-    protected String niceGreen = "#adff2f";
-    protected String niceRed = "#ff0000";
+    @FXML
+    protected Text amountCorrectDisplay;
+
+    @FXML
+    protected Text amountIncorrectDisplay;
+
+    protected Word currentWord;
+    protected Integer amountCorrect;
+    protected Integer amountIncorrect;
+
+    protected final String niceGreen = "#adff2f";
+    protected final String niceRed = "#ff0000";
 
     protected Word[] gameWords = {
             new Word("het", "paard"),
@@ -41,34 +52,56 @@ public class StartScreenController {
     };
 
     public StartScreenController() {
+        this.amountCorrect = 0;
+        this.amountIncorrect = 0;
         this.currentWord = this.getRandomWord();
+        //this.setNextWord();
     }
 
     @FXML
     protected void onClickButtonDe() {
         if (!this.buttonDe.getText().equalsIgnoreCase(this.currentWord.getLidwoord())) {
-            this.setButtonColor(this.niceRed);
+            this.setStatusTextColor(this.niceRed);
+            this.setStatusTextMessage("Niet juist!");
+            this.amountIncorrect++;
+
         } else {
-            this.setButtonColor(this.niceGreen);
+            this.setStatusTextColor(this.niceGreen);
+            this.setStatusTextMessage("Juist!");
+            this.amountCorrect++;
         }
 
+        this.updateGameScoreDisplay();
         this.setNextWord();
     }
 
     @FXML
     protected void onClickButtonHet() {
         if (!this.buttonHet.getText().equalsIgnoreCase(this.currentWord.getLidwoord())) {
-            this.setButtonColor(this.niceRed);
+            this.setStatusTextColor(this.niceRed);
+            this.setStatusTextMessage("Niet juist!");
+            this.amountIncorrect++;
         } else {
-            this.setButtonColor(this.niceGreen);
+            this.setStatusTextColor(this.niceGreen);
+            this.setStatusTextMessage("Juist!");
+            this.amountCorrect++;
         }
 
+        this.updateGameScoreDisplay();
         this.setNextWord();
     }
 
-    protected void setButtonColor(String hexColorCode) {
-        this.buttonHet.setTextFill(Paint.valueOf(hexColorCode));
-        this.buttonDe.setTextFill(Paint.valueOf(hexColorCode));
+    protected void setStatusTextMessage(String message) {
+        this.statusText.setText(message);
+    }
+
+    protected void setStatusTextColor(String hexColorCode) {
+        this.statusText.setFill(Paint.valueOf(hexColorCode));
+    }
+
+    protected void updateGameScoreDisplay(){
+        this.amountCorrectDisplay.setText(this.amountCorrect.toString());
+        this.amountIncorrectDisplay.setText(this.amountIncorrect.toString());
     }
 
     protected void setNextWord() {
